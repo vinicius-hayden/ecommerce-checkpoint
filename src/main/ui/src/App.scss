@@ -7,8 +7,10 @@
 }
 
 .navbar-logo {
-  background-image: url('../public/icon.svg');
+  background-image: url('../public/icon.png');
   background-repeat: no-repeat;
-  height: 35px;
-  width: 35px;
+  background-size: 65px;
+  height: 65px;
+  width: 65px;
+  padding-left: 50px;
 }
