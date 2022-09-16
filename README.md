@@ -6,7 +6,7 @@ This project consists of an ecommerce application with React, SASS and Java with
 
 In order to download this project, make sure you have a MySQL based database and/or apache manager such as XAMPP.
 
- - Start local MySQL db on port 3336; 
+ - Start local MySQL db on port 3306; 
  - Open the project with an IDE through the pom.xml file, and run the EcommerceApplication.java;
  - Open the ui directory and type the following code:
 
