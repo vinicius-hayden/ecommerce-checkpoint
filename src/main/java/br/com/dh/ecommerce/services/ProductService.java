@@ -6,7 +6,11 @@ import br.com.dh.ecommerce.entities.Category;
 import br.com.dh.ecommerce.entities.Product;
 import br.com.dh.ecommerce.repositories.CategoryRepository;
 import br.com.dh.ecommerce.repositories.ProductRepository;
+import br.com.dh.ecommerce.services.exceptions.DatabaseException;
+import br.com.dh.ecommerce.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -32,12 +36,27 @@ public class ProductService {
     @Transactional(readOnly = true)
     public ProductDto searchById(Integer id) {
         Optional<Product> object = repository.findById(id);
-        Product entity = object.get();
+        Product entity = object.orElseThrow(() -> new EntityNotFoundException(
+                "Entity or register " + id + " Not found on database!"
+        ));
         return new ProductDto(entity);
     }
 
     public void delete(Integer id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        }
+        catch (EmptyResultDataAccessException emptyResultDataAccessException) {
+            throw new EntityNotFoundException(
+              "Error on Deleting: Register " + id + " not found on your database"
+            );
+        }
+        catch (DataIntegrityViolationException dataIntegrityViolationException) {
+            throw new DatabaseException(
+                    "Integrity Violation: Register " + id +
+                            " is inserted in another register!"
+            );
+        }
     }
     @Transactional
     public ProductDto insert(ProductDto dto) {
@@ -53,14 +72,21 @@ public class ProductService {
 
     @Transactional
     public ProductDto update(Integer id, ProductDto dto) {
-        Product entity = repository.getReferenceById(id);
-        copyDtoToEntity(dto, entity);
-        entity.setTitle(dto.getTitle());
-        entity.setDescription(dto.getDescription());
-        entity.setImage(dto.getImage());
-        entity.setPrice(dto.getPrice());
-        entity = repository.save(entity);
-        return new ProductDto(entity);
+        try {
+            Product entity = repository.getReferenceById(id);
+            copyDtoToEntity(dto, entity);
+            entity.setTitle(dto.getTitle());
+            entity.setDescription(dto.getDescription());
+            entity.setImage(dto.getImage());
+            entity.setPrice(dto.getPrice());
+            entity = repository.save(entity);
+            return new ProductDto(entity);
+        }
+        catch (EntityNotFoundException entityNotFoundException) {
+            throw new EntityNotFoundException(
+                    "Entity or register " + id + " Not found on database!"
+            );
+        }
     }
 
     private void copyDtoToEntity(ProductDto dto, Product product) {
