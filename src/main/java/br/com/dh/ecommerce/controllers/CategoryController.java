@@ -11,30 +11,34 @@ import java.net.URI;
 import java.util.List;
 
 @RestController
-@RequestMapping(value = "categories")
+@RequestMapping(value = "/categories")
 public class CategoryController {
 
     @Autowired
     CategoryService service;
 
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<CategoryDto>> searchAllCategories() {
         List<CategoryDto> list = service.searchAll();
         return ResponseEntity.ok().body(list);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/{id}")
     public ResponseEntity<CategoryDto> searchCategoriesById(@PathVariable Integer id) {
         CategoryDto dto = service.searchById(id);
         return ResponseEntity.ok().body(dto);
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteCategory(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<CategoryDto> insertCategory(@RequestBody CategoryDto dto) {
         dto = service.insert(dto);
@@ -43,6 +47,7 @@ public class CategoryController {
         return ResponseEntity.created(uri).body(dto);
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping(value = "/{id}")
     public ResponseEntity<CategoryDto> updateCategory(@PathVariable Integer id,  @RequestBody CategoryDto dto) {
         dto = service.update(id, dto);
