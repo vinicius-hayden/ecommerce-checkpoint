@@ -4,6 +4,7 @@ import Nav from "./components/Nav";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
+import ProductsDetails from "./pages/ProductsDetails";
 import Categories from "./pages/Categories";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
@@ -22,6 +23,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
+            <Route path="/products/:idProduct" element={<ProductsDetails />} /> 
             <Route path="/categories" element={<Categories />} />
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />

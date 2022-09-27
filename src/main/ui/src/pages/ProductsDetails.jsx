@@ -1,23 +1,27 @@
-import { React, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useParams } from "react-router-dom";
 
 import { Link } from "react-router-dom";
 
-import { Container, CardGroup, Stack, Card } from "react-bootstrap";
+import { Container, CardGroup, Stack, Card, Button } from "react-bootstrap";
 
-export default function Products() {
-  const [products, setProducts] = useState([]);
+export default function ProductsDetails() {
+  const [product, setProduct] = useState({});
 
   useEffect(() => {
-    fetch("http://localhost:9000/products")
+    fetch(`http://localhost:9000/products/${idProduct}`)
       .then((response) => response.json())
-      .then((productsJSON) => setProducts(productsJSON));
+      .then((productsJSON) => setProduct(productsJSON));
   }, []);
+
+  const { idProduct } = useParams();
 
   return (
     <>
-      <h1 className="title" style={{ color: "#F55D15"}}>All products:</h1>
+      {/* Especificar os detalhes dos produtos */}
+      <h1>{idProduct}</h1>
 
-      {products.map((product, index) => (
+      {product.map((product, index) => (
         <Container className="my-3" key={index}>
           <Link to={`/products/${product.id}`}>
             <CardGroup className="col d-flex justify-content-center">
@@ -27,7 +31,14 @@ export default function Products() {
                   <Card.Body>
                     <Card.Title>{product.title}</Card.Title>
                     <Card.Subtitle>{product.category.name}</Card.Subtitle>
+                    <Card.Text>{product.description}</Card.Text>
                     <Card.Subtitle>{product.price}</Card.Subtitle>
+
+                    <Link className="nav-link" to="">
+                      <div className="text-center m-2">
+                        <Button variant="outline-dark">Add to cart</Button>
+                      </div>
+                    </Link>
                   </Card.Body>
                 </Card>
               </Stack>

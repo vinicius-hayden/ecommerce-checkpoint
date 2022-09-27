@@ -1,46 +1,46 @@
-import Container from "react-bootstrap/Container";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-
+import { Container, Nav, Navbar} from "react-bootstrap";
 import { Link } from "react-router-dom";
+
+import logo from "../assets/images/logo.png";
+
+import {FiShoppingCart} from "react-icons/fi"
 
 function BasicExample() {
   return (
-    <Navbar bg="light" expand="lg">
+    <Navbar bg="light" expand="lg" className="navbar">
       <Container>
         <Link className="navbar-brand" to="/">
-          memecommerce
+        <Navbar.Brand>
+            <img
+              src={logo}
+              alt="logo"
+              style={{ width: "50px", height: "50px", margin: "15px" }}
+            />
+            memecommerce
+          </Navbar.Brand>
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Link className="nav-link" to="/">
+            <Link className="nav-link" to="/" style={{ fontSize:"20px" }}>
               Home
             </Link>
 
-            <Link className="nav-link" to="/products">
+            <Link className="nav-link" to="/products" style={{ fontSize:"20px" }}>
               Products
             </Link>
 
-            <NavDropdown title="Categories" id="basic-nav-dropdown">
-              <Link className="nav-link" to="/categories/apparel">
-                Apparel
-              </Link>
-              <Link className="nav-link" to="/categories/sticker">Sticker</Link>
-              <Link className="nav-link" to="/categories/all">
-                All categories
-              </Link>
-            </NavDropdown>
-
-            <Link className="nav-link" to="/about">
-              About Us
+            <Link className="nav-link" to="/categories" style={{ fontSize:"20px" }}>
+              Categories
             </Link>
 
-            <Link className="nav-link" to="/cart">
-              Cart
+            <Link className="nav-link" to="/about" style={{ fontSize:"20px" }}>
+              About us
             </Link>
 
+            <Link className="nav-link" to="/cart" style={{ fontSize:"20px" }}>
+              <FiShoppingCart/>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
