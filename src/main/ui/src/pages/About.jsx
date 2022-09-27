@@ -1,8 +1,9 @@
+import Team from "../components/Team";
 
 export default function About() {
     return (
         <>
-            <h1>About Us</h1>
+            <Team />
         </>
     );
 }
