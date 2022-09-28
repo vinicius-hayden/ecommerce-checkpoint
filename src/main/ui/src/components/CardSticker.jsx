@@ -2,11 +2,9 @@ import { Card, CardGroup, Button, Stack } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
-import "./Card.css";
-
 export default function CardSticker() {
   return (
-    <CardGroup className="col d-flex justify-content-center">
+    <CardGroup className="col d-flex justify-content-center" style={{color: "#F55D15"}}>
       <Stack direction="horizontal" gap={4}>
         <Card className="">
           <Card.Img
@@ -16,7 +14,7 @@ export default function CardSticker() {
           <Card.Body>
             <Card.Title>We Need U T-Shirt</Card.Title>
             <Link className="nav-link" to="/products/4">
-              <div className="text-center m-2">
+              <div className="text-center m-3">
                 <Button variant="outline-dark">See details</Button>
               </div>
             </Link>
@@ -31,7 +29,7 @@ export default function CardSticker() {
           <Card.Body>
             <Card.Title>Marcelo`s Surf T-Shirt</Card.Title>
             <Link className="nav-link" to="/products/5">
-              <div className="text-center m-2">
+              <div className="text-center m-3">
                 <Button variant="outline-dark">See details</Button>
               </div>
             </Link>
@@ -46,7 +44,7 @@ export default function CardSticker() {
           <Card.Body>
             <Card.Title>Willian`s Mysterious T-Shirt</Card.Title>
             <Link className="nav-link" to="/products/6">
-              <div className="text-center m-2">
+              <div className="text-center m-3">
                 <Button variant="outline-dark">See details</Button>
               </div>
             </Link>

@@ -2,39 +2,69 @@ import { React, useState, useEffect } from "react";
 
 import { Link } from "react-router-dom";
 
-import { Container, CardGroup, Stack, Card } from "react-bootstrap";
+import { Container, CardGroup, Card, Row, Button } from "react-bootstrap";
 
 export default function Products() {
   const [products, setProducts] = useState([]);
 
+  let requestConfigurationGet = {
+    headers: {
+      "Content-Type": "application/json",
+      Authorization: localStorage.getItem("token"),
+    },
+  };
+
   useEffect(() => {
-    fetch("http://localhost:9000/products")
+    fetch("http://localhost:9000/products", requestConfigurationGet)
       .then((response) => response.json())
       .then((productsJSON) => setProducts(productsJSON));
   }, []);
 
   return (
     <>
-      <h1 className="title" style={{ color: "#F55D15"}}>All products:</h1>
+      <h1 className="title" style={{ color: "#F55D15" }}>
+        All products:
+      </h1>
 
-      {products.map((product, index) => (
-        <Container className="my-3" key={index}>
-          <Link to={`/products/${product.id}`}>
-            <CardGroup className="col d-flex justify-content-center">
-              <Stack direction="horizontal" gap={4}>
-                <Card className="p-2">
-                  <Card.Img variant="top" src={product.image} style={{}} />
-                  <Card.Body>
-                    <Card.Title>{product.title}</Card.Title>
-                    <Card.Subtitle>{product.category.name}</Card.Subtitle>
-                    <Card.Subtitle>{product.price}</Card.Subtitle>
-                  </Card.Body>
-                </Card>
-              </Stack>
-            </CardGroup>
-          </Link>
+      <Container className="d-flex flex-column justify-content-center">
+        <Container className="col-lg-12">
+          <Row xs={5} md={3}>
+            {products.map((product, index) => (
+              <Container
+                className="d-flex flex-column justify-content-center"
+                key={index}
+              >
+                <CardGroup className="col d-flex justify-content-center">
+                  <Card className="p-2 m-4">
+                    <Card.Img variant="top" src={product.image} style={{}} />
+                    <Link to={`/products/${product.id}`}></Link>
+                    <Card.Body>
+                      <Card.Title
+                        style={{ color: "#F55D15", fontSize: "1.5rem" }}
+                      >
+                        {product.title}
+                      </Card.Title>
+                      <Card.Subtitle style={{ fontSize: "1.5rem" }}>
+                        R$ {product.price}
+                      </Card.Subtitle>
+                      <Link to={`/products/${product.id}`}>
+                        <div className="text-center m-2">
+                          <Button
+                            className="btn btn-outline-primary mt-1 p-2"
+                            variant="outline-dark"
+                          >
+                            See details
+                          </Button>
+                        </div>
+                      </Link>
+                    </Card.Body>
+                  </Card>
+                </CardGroup>
+              </Container>
+            ))}
+          </Row>
         </Container>
-      ))}
+      </Container>
     </>
   );
 }

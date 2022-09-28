@@ -2,19 +2,19 @@ import { Card, CardGroup, Button, Stack } from "react-bootstrap";
 
 import { Link } from "react-router-dom";
 
-export default function CardApparel() {
+export default function CardMug() {
   return (
     <CardGroup className="col d-flex justify-content-center" style={{color: "#F55D15"}}>
       <Stack direction="horizontal" gap={4}>
         <Card className="">
           <Card.Img
             variant="top"
-            src="https://uploaddeimagens.com.br/images/004/032/242/full/masc_blue_save_dolfini.jpg?1663870987"
+            src=""
           />
           <Card.Body>
             <Card.Title>We Need U T-Shirt</Card.Title>
-            <Link className="nav-link" to="/products/4">
-              <div className="text-center m-3">
+            <Link className="nav-link" to="/products/">
+              <div className="text-center m-2">
                 <Button variant="outline-dark">See details</Button>
               </div>
             </Link>
@@ -24,12 +24,12 @@ export default function CardApparel() {
         <Card>
           <Card.Img
             variant="top"
-            src="https://uploaddeimagens.com.br/images/004/032/245/full/masc_grey_marcelo_surf.jpg?1663871093"
+            src=""
           />
           <Card.Body>
             <Card.Title>Marcelo`s Surf T-Shirt</Card.Title>
-            <Link className="nav-link" to="/products/5">
-              <div className="text-center m-3">
+            <Link className="nav-link" to="/products/">
+              <div className="text-center m-2">
                 <Button variant="outline-dark">See details</Button>
               </div>
             </Link>
@@ -39,12 +39,12 @@ export default function CardApparel() {
         <Card>
           <Card.Img
             variant="top"
-            src="https://uploaddeimagens.com.br/images/004/032/251/full/masc_marine_blue_wilian.jpg?1663871245"
+            src=""
           />
           <Card.Body>
             <Card.Title>Willian`s Mysterious T-Shirt</Card.Title>
-            <Link className="nav-link" to="/products/6">
-              <div className="text-center m-3">
+            <Link className="nav-link" to="/products/">
+              <div className="text-center m-2">
                 <Button variant="outline-dark">See details</Button>
               </div>
             </Link>
@@ -54,3 +54,7 @@ export default function CardApparel() {
     </CardGroup>
   );
 }
+
+// Inserir url das imagens
+// Trocar títulos 
+// Inserir Link to (id do produto)

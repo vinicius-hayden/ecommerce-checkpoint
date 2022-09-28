@@ -88,10 +88,10 @@ export default function Team() {
                   <Card.Img src={participant.photo} />
                   <Card.Title>{participant.name}</Card.Title>
                   <div className="d-flex gap-4 div">
-                    <a href={participant.github} className="icon">
+                    <a href={participant.github} className="icon" style={{ color: "black"}}>
                       <FaGithub size="30" />
                     </a>
-                    <a href={participant.linkedin} className="icon">
+                    <a href={participant.linkedin} className="icon" style={{ color: "black"}}>
                       <BsLinkedin size="30" />
                     </a>
                   </div>
@@ -104,3 +104,4 @@ export default function Team() {
     </>
   );
 }
+
