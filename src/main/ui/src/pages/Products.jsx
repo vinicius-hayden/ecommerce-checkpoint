@@ -8,8 +8,11 @@ export default function Products() {
   const [products, setProducts] = useState([]);
 
   let requestConfigurationGet = {
+    method: "GET",
     headers: {
+      "Accept": "*/*, application/json, text/plain",
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": '*', 
       Authorization: localStorage.getItem("token"),
     },
   };
@@ -19,34 +22,6 @@ export default function Products() {
       .then((response) => response.json())
       .then((productsJSON) => setProducts(productsJSON));
   }, []);
-
-  function addToCart({ product }) {
-    let cartString = localStorage.getItem("cart");
-    let cart = [];
-
-    if (cartString) {
-      cart = JSON.parse(cartString);
-    }
-    cart.push(product);
-    localStorage.setItem("cart", JSON.stringify(cart));
-    console.log(localStorage);
-  }
-
-  function removeItemFromCart({ product }) {
-    let cartString = localStorage.getItem("cart");
-
-    if(cartString) {
-      let cart = JSON.parse(cartString);
-      let newCart = [];
-
-      for (let i = 0; i < cart.length; i++) {
-        if (cart[i].id != product.id) {
-          newCart.push(cart[i]);
-        }
-      }
-      localStorage.setItem("cart", JSON.stringify(newCart));
-    }
-  }
 
   return (
     <>
