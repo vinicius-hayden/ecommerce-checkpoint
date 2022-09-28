@@ -20,10 +20,40 @@ export default function Products() {
       .then((productsJSON) => setProducts(productsJSON));
   }, []);
 
+  function addToCart({ product }) {
+    let cartString = localStorage.getItem("cart");
+    let cart = [];
+
+    if (cartString) {
+      cart = JSON.parse(cartString);
+    }
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    console.log(localStorage);
+  }
+
+  function removeItemFromCart({ product }) {
+    let cartString = localStorage.getItem("cart");
+
+    if(cartString) {
+      let cart = JSON.parse(cartString);
+      let newCart = [];
+
+      for (let i = 0; i < cart.length; i++) {
+        if (cart[i].id != product.id) {
+          newCart.push(cart[i]);
+        }
+      }
+      localStorage.setItem("cart", JSON.stringify(newCart));
+    }
+  }
+
   return (
     <>
-      <h1 className="title" style={{ color: "#F55D15" }}>
+      <h1 className="title" style={{ color: "#F55D15"  }}>
+        
         All products:
+      
       </h1>
 
       <Container className="d-flex flex-column justify-content-center">
