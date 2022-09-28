@@ -1,6 +1,6 @@
 package br.com.dh.ecommerce.repositories;
 
-import br.com.dh.ecommerce.entities.Product;
+import br.com.dh.ecommerce.entities.Category;
 import br.com.dh.ecommerce.tests.Factory;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
@@ -14,36 +14,36 @@ import java.util.List;
 import java.util.Optional;
 
 @DataJpaTest
-public class ProductRepositoryTest {
+public class CategoryRepositoryTest {
 
     @Autowired
-    private ProductRepository repository;
+    private CategoryRepository repository;
 
     private Integer existentId;
     private Integer nonExistentId;
-    private Integer countTotalProducts;
-    private List<Product> productList;
+    private Integer countTotalCategories;
+    private List<Category> categoryList;
 
     @BeforeEach
     void setup() throws Exception {
         existentId = 1;
         nonExistentId = 99;
-        countTotalProducts = 3;
-        productList = new ArrayList<>();
+        countTotalCategories = 3;
+        categoryList = new ArrayList<>();
     }
 
     @Test
     public void saveShouldSaveWithAutoIncrementWhenIdIsNull() {
-        Product product = Factory.createProduct();
-        product = repository.save(product);
-        Assertions.assertNotNull(product.getId());
-        Assertions.assertEquals(countTotalProducts + 1, product.getId());
+        Category category = Factory.createCategory();
+        category = repository.save(category);
+        Assertions.assertNotNull(category.getId());
+        Assertions.assertEquals(countTotalCategories + 1, category.getId());
     }
 
     @Test
     public void deleteShouldDeleteObjectWhenIdExists() {
         repository.deleteById(existentId);
-        Optional<Product> result = repository.findById(existentId);
+        Optional<Category> result = repository.findById(existentId);
         Assertions.assertTrue(result.isEmpty());
     }
 
@@ -56,21 +56,22 @@ public class ProductRepositoryTest {
 
     @Test
     public void findAllShouldReturnAList() {
-        List<Product> result = repository.findAll();
+        List<Category> result = repository.findAll();
         Assertions.assertFalse(result.isEmpty());
         Assertions.assertNotNull(result);
     }
 
     @Test
     public void searchByIdAndReturnProduct() {
-        Optional<Product> result = repository.findById(existentId);
+        Optional<Category> result = repository.findById(existentId);
         Assertions.assertTrue(result.isPresent());
     }
 
     @Test
     public void SearchByIdAndReturnVoidOptional() {
-        Optional<Product> result = repository.findById(nonExistentId);
+        Optional<Category> result = repository.findById(nonExistentId);
         Assertions.assertTrue(result.isEmpty());
     }
 
 }
+

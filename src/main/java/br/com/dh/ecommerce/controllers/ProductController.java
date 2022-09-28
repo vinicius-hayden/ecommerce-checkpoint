@@ -13,10 +13,10 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/products")
 public class ProductController {
-
     @Autowired
     ProductService service;
 
+    @CrossOrigin
     @GetMapping
     public ResponseEntity<List<ProductDto>> searchAllProducts() {
         List<ProductDto> list = service.searchAll();

@@ -3,7 +3,11 @@ package br.com.dh.ecommerce.services;
 import br.com.dh.ecommerce.dtos.CategoryDto;
 import br.com.dh.ecommerce.entities.Category;
 import br.com.dh.ecommerce.repositories.CategoryRepository;
+import br.com.dh.ecommerce.services.exceptions.DatabaseException;
+import br.com.dh.ecommerce.services.exceptions.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.dao.DataIntegrityViolationException;
+import org.springframework.dao.EmptyResultDataAccessException;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -26,12 +30,27 @@ public class CategoryService {
     @Transactional(readOnly = true)
     public CategoryDto searchById(Integer id) {
         Optional<Category> object = repository.findById(id);
-        Category entity = object.get();
+        Category entity = object.orElseThrow(() -> new EntityNotFoundException(
+                "Entity or register " + id + " Not found on database!"
+        ));
         return new CategoryDto(entity);
     }
 
     public void delete(Integer id) {
-        repository.deleteById(id);
+        try {
+            repository.deleteById(id);
+        }
+        catch (EmptyResultDataAccessException emptyResultDataAccessException) {
+            throw new EntityNotFoundException(
+                    "Error on Deleting: Register " + id + " not found on your database"
+            );
+        }
+        catch (DataIntegrityViolationException dataIntegrityViolationException) {
+            throw new DatabaseException(
+                    "Integrity Violation: Register " + id +
+                            " is inserted in another register!"
+            );
+        }
     }
 
     @Transactional
@@ -44,10 +63,17 @@ public class CategoryService {
 
     @Transactional
     public CategoryDto update(Integer id, CategoryDto dto) {
-        Category entity = repository.getReferenceById(id);
-        entity.setName(dto.getName());
-        entity = repository.save(entity);
-        return new CategoryDto(entity);
-    }
 
+        try {
+            Category entity = repository.getReferenceById(id);
+            entity.setName(dto.getName());
+            entity = repository.save(entity);
+            return new CategoryDto(entity);
+        }
+        catch (EntityNotFoundException entityNotFoundException) {
+            throw new EntityNotFoundException(
+                    "Entity or register " + id + " Not found on database!"
+            );
+        }
+    }
 }
