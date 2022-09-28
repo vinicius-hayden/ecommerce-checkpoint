@@ -16,25 +16,28 @@ public class ProductController {
     @Autowired
     ProductService service;
 
-    @CrossOrigin
+    @CrossOrigin(origins = "*")
     @GetMapping
     public ResponseEntity<List<ProductDto>> searchAllProducts() {
         List<ProductDto> list = service.searchAll();
         return ResponseEntity.ok().body(list);
     }
 
+    @CrossOrigin(origins = "*")
     @GetMapping(value = "/{id}")
     public ResponseEntity<ProductDto> searchProductsById(@PathVariable Integer id) {
         ProductDto dto = service.searchById(id);
         return ResponseEntity.ok().body(dto);
     }
 
+    @CrossOrigin(origins = "*")
     @DeleteMapping(value = "/{id}")
     public ResponseEntity<Void> deleteProduct(@PathVariable Integer id) {
         service.delete(id);
         return ResponseEntity.noContent().build();
     }
 
+    @CrossOrigin(origins = "*")
     @PostMapping
     public ResponseEntity<ProductDto> insertProduct(@RequestBody ProductDto dto) {
         dto = service.insert(dto);
@@ -43,6 +46,7 @@ public class ProductController {
         return ResponseEntity.created(uri).body(dto);
     }
 
+    @CrossOrigin(origins = "*")
     @PutMapping(value = "/{id}")
     public ResponseEntity<ProductDto> updateProduct(@PathVariable Integer id,  @RequestBody ProductDto dto) {
         dto = service.update(id, dto);
