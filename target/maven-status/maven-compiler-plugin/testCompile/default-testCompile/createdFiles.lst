@@ -1,0 +1,4 @@
+br\com\dh\ecommerce\tests\Factory.class
+br\com\dh\ecommerce\repositories\ProductRepositoryTest.class
+br\com\dh\ecommerce\EcommerceApplicationTests.class
+br\com\dh\ecommerce\repositories\CategoryRepositoryTest.class
