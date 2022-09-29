@@ -9,12 +9,12 @@ export default function CardMug() {
         <Card className="">
           <Card.Img
             variant="top"
-            src=""
+            src="https://uploaddeimagens.com.br/images/004/040/680/full/hokagecristh.jpg?1664390608"
           />
           <Card.Body>
-            <Card.Title>We Need U T-Shirt</Card.Title>
-            <Link className="nav-link" to="/products/">
-              <div className="text-center m-2">
+            <Card.Title>Hokage Cristh Mug</Card.Title>
+            <Link className="nav-link" to="/products/7">
+              <div className="text-center m-3">
                 <Button variant="outline-dark">See details</Button>
               </div>
             </Link>
@@ -24,12 +24,12 @@ export default function CardMug() {
         <Card>
           <Card.Img
             variant="top"
-            src=""
+            src="https://cdn.discordapp.com/attachments/1012420525039030332/1024388808373981194/caneca_christh_redentor.jpg"
           />
           <Card.Body>
-            <Card.Title>Marcelo`s Surf T-Shirt</Card.Title>
-            <Link className="nav-link" to="/products/">
-              <div className="text-center m-2">
+            <Card.Title>Cristh the Redeemer</Card.Title>
+            <Link className="nav-link" to="/products/8">
+              <div className="text-center m-3">
                 <Button variant="outline-dark">See details</Button>
               </div>
             </Link>
@@ -39,12 +39,12 @@ export default function CardMug() {
         <Card>
           <Card.Img
             variant="top"
-            src=""
+            src="https://uploaddeimagens.com.br/images/004/040/679/full/mug.jpeg?1664390571"
           />
           <Card.Body>
-            <Card.Title>Willian`s Mysterious T-Shirt</Card.Title>
-            <Link className="nav-link" to="/products/">
-              <div className="text-center m-2">
+            <Card.Title>Que café gostosinnn Mug</Card.Title>
+            <Link className="nav-link" to="/products/9">
+              <div className="text-center m-3">
                 <Button variant="outline-dark">See details</Button>
               </div>
             </Link>
@@ -54,7 +54,3 @@ export default function CardMug() {
     </CardGroup>
   );
 }
-
-// Inserir url das imagens
-// Trocar títulos 
-// Inserir Link to (id do produto)
