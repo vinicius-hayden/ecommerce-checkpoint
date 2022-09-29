@@ -8,8 +8,11 @@ export default function Products() {
   const [products, setProducts] = useState([]);
 
   let requestConfigurationGet = {
+    method: "GET",
     headers: {
+      "Accept": "*/*, application/json, text/plain",
       "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": '*', 
       Authorization: localStorage.getItem("token"),
     },
   };
@@ -22,8 +25,10 @@ export default function Products() {
 
   return (
     <>
-      <h1 className="title" style={{ color: "#F55D15" }}>
+      <h1 className="title" style={{ color: "#F55D15"  }}>
+        
         All products:
+      
       </h1>
 
       <Container className="d-flex flex-column justify-content-center">

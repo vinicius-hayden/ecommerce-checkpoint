@@ -7,16 +7,48 @@ import { Container, Row, CardGroup, Card, Col, Button } from "react-bootstrap";
 
 import { BiArrowBack } from "react-icons/bi";
 
+import Swal from "sweetalert2/dist/sweetalert2";
+
+import 'sweetalert2/dist/sweetalert2.css'
+
 export default function ProductsDetails() {
   const { idProduct } = useParams();
-
   const [product, setProduct] = useState({});
 
+  let requestConfigurationGet = {
+    method: "GET",
+    headers: {
+      Accept: "*/*, application/json, text/plain",
+      "Content-Type": "application/json",
+      "Access-Control-Allow-Origin": "*",
+      Authorization: localStorage.getItem("token"),
+    },
+  };
+
   useEffect(() => {
-    fetch(`http://localhost:9000/products/${idProduct}`)
+    fetch(
+      `http://localhost:9000/products/${idProduct}`,
+      requestConfigurationGet
+    )
       .then((response) => response.json())
       .then((productJSON) => setProduct(productJSON));
   }, []);
+
+  function addToCart({ product }) {
+    let cartString = localStorage.getItem("cart");
+    let cart = [];
+
+    if (cartString) {
+      cart = JSON.parse(cartString);
+    }
+    cart.push(product);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    Swal.fire({
+      icon: 'success',
+      title: 'All done!',
+      text: 'Item added to cart!'
+    })
+  }
 
   return (
     <>
@@ -49,10 +81,10 @@ export default function ProductsDetails() {
                   </p>
                   <h4 className="mb-5">R$ {product.price}</h4>
 
-                  {/* Adicionar lógica do botão */}
                   <Button
                     className="btn btn-outline-primary"
                     variant="outline-dark"
+                    onClick={() => addToCart({ product })}
                   >
                     Add to Cart
                   </Button>
