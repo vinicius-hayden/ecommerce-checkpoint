@@ -1,16 +1,9 @@
-#logo {
-  background:#00c5cd;
-  font-style: italic;
-   font-family: "cursive";
-  font-weight: bold;
-  color:#ec300f
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.navbar-logo {
-  background-image: url('../public/icon.png');
-  background-repeat: no-repeat;
-  background-size: 65px;
-  height: 65px;
-  width: 65px;
-  padding-left: 50px;
+.navbar{
+  background-color: #F5F5F5;
 }
