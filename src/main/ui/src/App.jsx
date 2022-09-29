@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -9,6 +10,7 @@ import Categories from "./pages/Categories";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import CategoriesDetails from "./pages/CategoriesDetails";
+import CategoryProductDetails from "./pages/CategoryProductDetails";
 
 export default function App() {
   return (
@@ -30,6 +32,12 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col">
+          <Footer />
         </div>
       </div>
    </div>

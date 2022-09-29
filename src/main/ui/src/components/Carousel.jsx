@@ -3,7 +3,7 @@ import React, { useState } from "react";
 import { Carousel, Ratio } from "react-bootstrap";
 
 import CardApparel from "./CardApparel";
-import CardSticker from "./CardSticker";
+import CardMug from "./CardMug";
 
 import backgroundCarousel from "../assets/images/backgroundCarousel.jpg";
 
@@ -38,7 +38,7 @@ export default function ControlledCarousel() {
 
         <Carousel.Caption>
           <Ratio aspectRatio={1 / 2}>
-            <CardSticker />
+            <CardMug />
           </Ratio>
         </Carousel.Caption>
       </Carousel.Item>
