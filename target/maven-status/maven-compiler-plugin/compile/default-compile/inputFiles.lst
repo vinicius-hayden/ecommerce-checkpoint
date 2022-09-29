@@ -1,0 +1,16 @@
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\dtos\CategoryDto.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\entities\Product.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\services\ProductService.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\EcommerceApplication.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\config\WebSecurityConfig.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\dtos\ProductDto.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\entities\Category.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\services\exceptions\EntityNotFoundException.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\services\CategoryService.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\services\exceptions\DatabaseException.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\repositories\ProductRepository.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\controllers\exceptions\ExceptionsHandler.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\repositories\CategoryRepository.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\controllers\CategoryController.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\controllers\ProductController.java
+C:\Users\fabia\OneDrive\Área de Trabalho\ecommerce-checkpoint\src\main\java\br\com\dh\ecommerce\controllers\exceptions\DefaultError.java
