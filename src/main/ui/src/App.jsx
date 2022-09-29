@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Nav from "./components/Nav";
+import Footer from "./components/Footer";
 
 import Home from "./pages/Home";
 import Products from "./pages/Products";
@@ -31,6 +32,12 @@ export default function App() {
             <Route path="/about" element={<About />} />
             <Route path="/cart" element={<Cart />} />
           </Routes>
+        </div>
+      </div>
+
+      <div className="row">
+        <div className="col">
+          <Footer />
         </div>
       </div>
    </div>
