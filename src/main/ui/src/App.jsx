@@ -9,6 +9,7 @@ import Categories from "./pages/Categories";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import CategoriesDetails from "./pages/CategoriesDetails";
+import CategoryProductDetails from "./pages/CategoryProductDetails";
 
 export default function App() {
   return (
