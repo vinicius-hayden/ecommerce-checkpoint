@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 import { Container, Row, CardGroup, Card, Col, Button } from "react-bootstrap";
 
@@ -14,6 +14,7 @@ import 'sweetalert2/dist/sweetalert2.css'
 export default function ProductsDetails() {
   const { idProduct } = useParams();
   const [product, setProduct] = useState({});
+  const navigate = useNavigate();
 
   let requestConfigurationGet = {
     method: "GET",
@@ -58,7 +59,7 @@ export default function ProductsDetails() {
           key={index}
         >
           <Row>
-            <Link to={"/products"}>
+            <Link onClick={() => navigate(-1)}>
               <BiArrowBack size="40" color="#F55D15" />
             </Link>
           </Row>
