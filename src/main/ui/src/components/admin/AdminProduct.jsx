@@ -105,7 +105,6 @@ export default function AdminProduct() {
     }
 
     if (isTitleValid(title) && isDescriptionValid(description) && isImageValid(image) && isPriceValid(price) && isCategoryValid(categories)) {
-      console.log("TUDO CERTO MAS N FOI :(")
       Swal.fire({
         icon: 'success',
         title: 'Product successfully created!!',
@@ -122,9 +121,9 @@ export default function AdminProduct() {
             }
           ],
         }).then(() => {
-          console.log('GOOD')
+          console.log('Success')
         }).catch(() => {
-          console.log('DEU RUIMM')
+          console.log('Error')
         })
       })
     }
@@ -139,15 +138,15 @@ export default function AdminProduct() {
     if (isIdValid(id)) {
       Swal.fire({
         icon: 'success',
-        title: 'Category successfully deleted!!',
-        text: `Try seeing it on Category list`
+        title: 'Product successfully deleted!!',
+        text: `Try seeing it on Product list`
       }).then(() => {
         axios.delete(`${url}/${id}`, {
           id: `${id}`,
         }).then(() => {
-          console.log('GOOD')
+          console.log('Success')
         }).catch(() => {
-          console.log('DEU RUIMM')
+          console.log('Error')
         })
       })
     }

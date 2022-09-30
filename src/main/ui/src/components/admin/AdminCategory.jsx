@@ -48,9 +48,9 @@ export default function AdminCategory() {
         axios.post(url, {
           name: `${name}`,
         }).then(() => {
-          console.log('GOOD')
+          console.log('Success')
         }).catch(() => {
-          console.log('DEU RUIMM')
+          console.log('Error')
         })
       })
     }
@@ -71,9 +71,9 @@ export default function AdminCategory() {
         axios.delete(`${url}/${id}`, {
           id: `${id}`,
         }).then(() => {
-          console.log('GOOD')
+          console.log('Success')
         }).catch(() => {
-          console.log('DEU RUIMM')
+          console.log('Error')
         })
       })
     }
