@@ -24,6 +24,7 @@ export default function CardMug() {
         <Card>
           <Card.Img
             variant="top"
+            style={{maxWidth: "735px", maxHeight: "735px"}}
             src="https://cdn.discordapp.com/attachments/1012420525039030332/1024388808373981194/caneca_christh_redentor.jpg"
           />
           <Card.Body>
