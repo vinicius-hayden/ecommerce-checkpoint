@@ -10,7 +10,10 @@ import Categories from "./pages/Categories";
 import About from "./pages/About";
 import Cart from "./pages/Cart";
 import CategoriesDetails from "./pages/CategoriesDetails";
-import CategoryProductDetails from "./pages/CategoryProductDetails";
+import Login from "./pages/Login";
+import AdminPage from "./pages/admin/AdminPage";
+import AdminCategory from "./components/admin/AdminCategory";
+import AdminProduct from "./components/admin/AdminProduct";
 
 export default function App() {
   return (
@@ -26,11 +29,15 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/products" element={<Products />} />
-            <Route path="/products/:idProduct" element={<ProductsDetails />} /> 
+            <Route path="/products/:idProduct" element={<ProductsDetails />} />
             <Route path="/categories" element={<Categories />} />
             <Route path="/categories/:idCategory" element={<CategoriesDetails />} />
             <Route path="/about" element={<About />} />
+            <Route path="/login" element={<Login />} />
             <Route path="/cart" element={<Cart />} />
+            <Route path="/admin" element={<AdminPage />} />
+            <Route path="/admin/category" element={<AdminCategory />} />
+            <Route path="/admin/product" element={<AdminProduct />} />
           </Routes>
         </div>
       </div>
@@ -40,6 +47,6 @@ export default function App() {
           <Footer />
         </div>
       </div>
-   </div>
+    </div>
   );
 }
