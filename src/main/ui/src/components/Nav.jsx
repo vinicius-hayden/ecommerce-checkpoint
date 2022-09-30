@@ -38,6 +38,10 @@ function BasicExample() {
               About us
             </Link>
 
+            <Link className="nav-link" to="/login" style={{ fontSize:"20px" }}>
+              Login
+            </Link>
+
             <Link className="nav-link" to="/cart" style={{ fontSize:"20px" }}>
               <FiShoppingCart/>
             </Link>
